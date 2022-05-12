@@ -1,0 +1,20 @@
+<h1>Not So Perfect Logistics</h1>
+<h3>Inventory Management</h3>
+<table>
+  <tr>
+    <th>SKU</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Quantity</th>
+  </tr>
+  <% @items.each do |item| %>
+    <tr>
+      <td><%= item.sku %></td>
+      <td><%= link_to item.name, item %></td>
+      <td><%= item.desc %></td>
+      <td><%= item.price %></td>
+      <td><%= item.quantity %></td>
+    </tr>
+  <% end %>
+</table>
