@@ -1,0 +1,24 @@
+<div class="row">
+    <% @warehouses.each do |warehouse| %>
+    <div class="col-12">
+        <h1 style="text-align:center;"><%= link_to warehouse.name, warehouse %></h1>
+        <hr />
+    </div>
+    <% @items.each do |item| %>
+    <% if item.warehouse == warehouse %>
+    <div class="col-4">
+        <h5>
+            <%= link_to item.name, item %>
+        </h5>
+        <p>
+            <%= item.desc %>
+        </p>
+        <span><%= item.price %></span>
+    </div>
+    <% end %>
+    <% end %>
+    <% end %>
+</div>
+
+<%= link_to "New Warehouse", new_warehouse_path %>
+<%= link_to "New Item", new_item_path %>

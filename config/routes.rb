@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root "items#index"
-  
+  resources :warehouses
+
   resources :items
+
+  root "inventory#index"
 end

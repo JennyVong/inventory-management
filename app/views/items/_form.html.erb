@@ -6,7 +6,6 @@
       <div><%= message %></div>
     <% end %>
   </div>
-
   <div>
     <%= form.label :name %><br>
     <%= form.text_field :name %>
@@ -14,7 +13,6 @@
       <div><%= message %></div>
     <% end %>
   </div>
-
   <div>
     <%= form.label :desc %><br>
     <%= form.text_area :desc %><br>
@@ -22,7 +20,6 @@
       <div><%= message %></div>
     <% end %>
   </div>
-
   <div>
     <%= form.label :price %><br>
     <%= form.text_field :price %>
@@ -30,7 +27,6 @@
       <div><%= message %></div>
     <% end %>
   </div>
-
   <div>
     <%= form.label :quantity %><br>
     <%= form.text_field :quantity %>
@@ -38,7 +34,13 @@
       <div><%= message %></div>
     <% end %>
   </div>
-
+  <div>
+    <%= form.label :warehouse %><br>
+    <%= form.collection_select(:warehouse_id, Warehouse.all, :id, :name, :prompt => 'Select') %>
+    <% item.errors.full_messages_for(:warehouse).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
   <div>
     <%= form.submit %>
   </div>

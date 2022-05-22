@@ -12,7 +12,8 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
+    @item = Item.create(item_params)
+    @item.warehouse = Warehouse.find(params[:item][:warehouse_id])
 
     if @item.save
       redirect_to @item
@@ -44,7 +45,7 @@ class ItemsController < ApplicationController
 
   private
     def item_params
-      params.require(:item).permit(:sku, :name, :desc, :price, :quantity)
+      params.require(:item).permit(:sku, :name, :desc, :price, :quantity, :warehouse_id)
     end
 
 end
