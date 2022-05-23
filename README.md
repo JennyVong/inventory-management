@@ -7,7 +7,7 @@ ruby 3.1.2p20 (2022-04-12 revision 4491bb740a) [x86_64-darwin19]
 Rails 7.0.3
 
 How to run Locally:
-- clone repo: git clone 
+- clone repo: git clone https://github.com/JennyVong/inventory-management.git
 - open new terminal
 - run: bin/rails server
 - go to http://localhost:3000/
