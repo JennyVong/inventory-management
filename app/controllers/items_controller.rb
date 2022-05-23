@@ -13,9 +13,9 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.create(item_params)
-    @item.warehouse = Warehouse.find(params[:item][:warehouse_id])
 
     if @item.save
+      @item.warehouse = Warehouse.find(params[:item][:warehouse_id])
       redirect_to @item
     else
       render :new, status: :unprocessable_entity
@@ -28,6 +28,7 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
+    @item.warehouse = Warehouse.find(params[:item][:warehouse_id])
 
     if @item.update(item_params)
       redirect_to @item

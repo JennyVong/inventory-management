@@ -1,6 +1,8 @@
 <h1><%= @item.name %></h1>
 
-<p><%= @item.desc %></p>
+<span><%= @item.desc %></span><br>
+
+<span> $<%= @item.price %> | <%= @item.quantity %> in stock</span>
 
 <ul>
   <li><%= link_to "Edit", edit_item_path(@item) %></li>
@@ -9,3 +11,5 @@
                     turbo_confirm: "Are you sure?"
                   } %></li>
 </ul>
+
+<%= link_to "home", root_path %>

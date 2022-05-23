@@ -1,24 +1,41 @@
 <div class="row">
-    <% @warehouses.each do |warehouse| %>
+  <% @warehouses.each do |warehouse| %>
     <div class="col-12">
-        <h1 style="text-align:center;"><%= link_to warehouse.name, warehouse %></h1>
-        <hr />
+      <h1 style="text-align:center;"><%= link_to warehouse.name, warehouse %></h1>
+      <p style="text-align:center; font-weight: bold;"><%= warehouse.location %></p>
+      <hr />
     </div>
+    <table style="justify-content: center; display: flex;">
+    <tr>
+    <th>sku</th>
+    <th>name</th>
+    <th>description</th>
+    <th>price</th>
+    <th>quantity</th>
+    </tr>
     <% @items.each do |item| %>
-    <% if item.warehouse == warehouse %>
-    <div class="col-4">
-        <h5>
-            <%= link_to item.name, item %>
-        </h5>
-        <p>
-            <%= item.desc %>
-        </p>
-        <span><%= item.price %></span>
-    </div>
+    <tr>
+      <% if item.warehouse == warehouse %>
+        <td><%= item.sku %></td>
+        <td><%= item.name %></td>
+        <td><%= item.desc %></td>
+        <td><%= item.price %></td>
+        <td><%= item.quantity %></td>
+        <td><%= link_to "View", item %></td>
+        <td><%= link_to "Edit", edit_item_path(item) %></td>
+        <td><%= link_to "Destroy", item_path(item), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></td>
+      <% end %>
     <% end %>
-    <% end %>
-    <% end %>
+    </table>
+  <% end %>
 </div>
 
 <%= link_to "New Warehouse", new_warehouse_path %>
-<%= link_to "New Item", new_item_path %>
+<% if @warehouses != [] %>
+  <%= link_to "New Item", new_item_path %>
+<% else %>
+  <span>No Warehouses to store inventory, need to create a Warehouse first!</span>
+<% end %>

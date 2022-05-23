@@ -36,8 +36,8 @@
   </div>
   <div>
     <%= form.label :warehouse %><br>
-    <%= form.collection_select(:warehouse_id, Warehouse.all, :id, :name, :prompt => 'Select') %>
-    <% item.errors.full_messages_for(:warehouse).each do |message| %>
+    <%= form.collection_select(:warehouse_id, Warehouse.all, :id, :name, :prompt => 'Select', :required => true) %>
+    <% item.errors.full_messages_for(:warehouse_id).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
@@ -45,3 +45,5 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+<%= link_to "home", root_path %>
