@@ -24,6 +24,4 @@ Future Implementations:
 - can add a customer/client relationship for each shipment/order
 - add more validations for attributes of Models
 
-Replit may not work since importing github repo does not support rails and cannot install the rails package either
-Tried to create a new replit repl which does work when importing all my files in manually,
 Link to repl: https://replit.com/@JennyVong/inventory-management
